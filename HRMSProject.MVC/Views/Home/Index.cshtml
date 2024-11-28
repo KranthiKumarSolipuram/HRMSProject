@@ -1,0 +1,13 @@
+﻿@model IEnumerable<HRMSProject.MVC.Data.ToDo>
+
+	<h1> To-Do List</h1>
+	<form asp-action="AddTask" method="post">
+		<input type="text" name="TaskName" placeholder="Enter a new task " required/>
+		<button type="submit">Add</button>
+	</form>
+
+	<ul>
+		@foreach(var task in Model){
+			<li>@task.Task (@(task.IsCompleted ? "Completed" : "Pending"))</li>
+		}
+	</ul>
